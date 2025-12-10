@@ -13,6 +13,7 @@ public class ParkingManager{
         }
         queue = new MyQueue();
     }
+    // O(n)
     public String addCarToFirstAvailable(int carId){
         Car car = new Car(carId);
         if (!queue.isEmpty()){
@@ -28,6 +29,7 @@ public class ParkingManager{
         queue.enqueue(car);
         return "Parking full. Car moved to queue.";
     }
+    //O(n)
     public String addCarToStack(int carId, int stackNumber){
         int index = stackNumber - 1;
         if (index < 0 || index >= n){
@@ -41,6 +43,7 @@ public class ParkingManager{
         stack.push(car);
         return "Car " + carId + " added to stack " + stackNumber;
     }
+    //O(1)
     public String removeFromStack(int stackNumber){
         int index = stackNumber - 1;
         if (index < 0 || index >= n) return "Invalid stack number.";
@@ -50,6 +53,7 @@ public class ParkingManager{
         if (removed == null) return "Cannot remove — not at front.";
         return "Removed car " + removed.getCarId() + " from stack " + stackNumber;
     }
+    //O(n^2)
     public String find(int carId){
         for (int i = 0; i < n; i++){
             Node temp = stacks[i].getList().getHead();
@@ -64,6 +68,7 @@ public class ParkingManager{
         }
         return "Car not found.";
     }
+    //O(n^2)
     public void sortStack(int stackNumber){
         int index = stackNumber - 1;
         MyStack stack = stacks[index];
@@ -82,6 +87,7 @@ public class ParkingManager{
             temp = temp.next;
         }
     }
+    //O(nlogn)
     private Node mergeSort(Node head){
         if (head == null || head.next == null) return head;
         Node mid = getMid(head);
@@ -91,6 +97,7 @@ public class ParkingManager{
         Node rightSorted = mergeSort(right);
         return merge(leftSorted, rightSorted);
     }
+    //O(n)
     private Node merge(Node a, Node b){
         if (a == null) return b;
         if (b == null) return a;
@@ -102,6 +109,7 @@ public class ParkingManager{
             return b;
         }
     }
+    //O(n)
     private Node getMid(Node head){
         Node slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
@@ -110,6 +118,7 @@ public class ParkingManager{
         }
         return slow;
     }
+    //O(1)
     public String swapStacks(int i, int j){
         int a = i - 1;
         int b = j - 1;

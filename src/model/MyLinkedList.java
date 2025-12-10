@@ -12,6 +12,7 @@ public class MyLinkedList{
     public int size(){
         return size;
     }
+    //O(n)
     public void addLast(Car car){
         Node newNode = new Node(car);
         if (head == null){
@@ -25,6 +26,7 @@ public class MyLinkedList{
         }
         size++;
     }
+    //O(1)
     public Car removeFirst(){
         if (isEmpty()) return null;
         Car removed = head.data;
@@ -32,6 +34,7 @@ public class MyLinkedList{
         size--;
         return removed;
     }
+    //O(n)
     public Car removeAt(int index){
         if (index < 0 || index >= size) return null;
         if (index == 0) return removeFirst();
@@ -44,6 +47,7 @@ public class MyLinkedList{
         size--;
         return removed;
     }
+    //O(n)
     public Car getAt(int index){
         if (index < 0 || index >= size) return null;
         Node tmp = head;
