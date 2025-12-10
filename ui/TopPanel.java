@@ -19,17 +19,14 @@ public class TopPanel extends JPanel {
         this.setPreferredSize(new Dimension(1820, 40));
         this.setBackground(Color.LIGHT_GRAY);
 
-        // Car ID Input
         add(new JLabel("Car ID:"));
         carIdField = new JTextField(8);
         add(carIdField);
 
-        // Stack Number Input
         add(new JLabel("Stack #:"));
         stackNumberField = new JTextField(4);
         add(stackNumberField);
 
-        // Buttons
         btnEnterFirstEmpty = new JButton("Enter First Empty");
         add(btnEnterFirstEmpty);
 
@@ -49,7 +46,6 @@ public class TopPanel extends JPanel {
         add(btnSwap);
     }
 
-    // Getters
     public String getCarId() {
         return carIdField.getText().trim();
     }

@@ -28,7 +28,6 @@ public class ParkingController {
 
     private void setupListeners() {
 
-        // 1) Enter First Empty Stack
         top.getBtnEnterFirstEmpty().addActionListener(e -> {
             String carText = top.getCarId();
             if (!isValidInt(carText)) {
@@ -41,7 +40,6 @@ public class ParkingController {
             refreshUI();
         });
 
-        // 2) Enter Specific Stack
         top.getBtnEnterSpecificStack().addActionListener(e -> {
             String carText = top.getCarId();
             String stackText = top.getStackNumber();
@@ -56,7 +54,6 @@ public class ParkingController {
             refreshUI();
         });
 
-        // 3) Exit Stack
         top.getBtnExit().addActionListener(e -> {
             String stackText = top.getStackNumber();
             if (!isValidInt(stackText)) {
@@ -69,7 +66,6 @@ public class ParkingController {
             refreshUI();
         });
 
-        // 4) Find Car
         top.getBtnFind().addActionListener(e -> {
             String carText = top.getCarId();
             if (!isValidInt(carText)) {
@@ -81,7 +77,6 @@ public class ParkingController {
             JOptionPane.showMessageDialog(null, msg);
         });
 
-        // 5) Sort Stack
         top.getBtnSort().addActionListener(e -> {
             String stackText = top.getStackNumber();
             if (!isValidInt(stackText)) {
@@ -94,7 +89,6 @@ public class ParkingController {
             refreshUI();
         });
 
-        // 6) Swap Stacks
         top.getBtnSwap().addActionListener(e -> {
             String s1 = JOptionPane.showInputDialog("Enter first stack number:");
             String s2 = JOptionPane.showInputDialog("Enter second stack number:");
@@ -121,13 +115,11 @@ public class ParkingController {
 
     // O(n^2)
     private void refreshUI() {
-        // Update stacks
         MyStack[] stacks = manager.getStacks();
         for (int i = 0; i < stacks.length; i++) {
             center.setStackText(i, stacks[i].toString());
         }
 
-        // Update queue
         MyQueue q = manager.getQueue();
         bottom.setQueueText(q.toString());
     }

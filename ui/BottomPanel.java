@@ -11,10 +11,8 @@ public class BottomPanel extends JPanel {
         this.setPreferredSize(new Dimension(1820, 150));
         this.setBackground(Color.LIGHT_GRAY);
 
-        // Label (اختیاری ولی مفید)
         add(new JLabel("Queue:"), BorderLayout.NORTH);
 
-        // Queue display area
         queueArea = new JTextArea();
         queueArea.setEditable(false);
 
@@ -22,7 +20,6 @@ public class BottomPanel extends JPanel {
         add(scroll, BorderLayout.CENTER);
     }
 
-    // متدی برای بروز رسانی صف
     public void setQueueText(String text) {
         queueArea.setText(text);
     }
